@@ -161,7 +161,7 @@
         version: trunk
 
     - git:
-        repo: "https://github.com/reactioncommerce/proxy-traefik.git"
+        repo: "https://github.com/hrushikesh09/proxy-traefik.git"
         dest: /home/{{ create_user }}/{{proxy_dir}}
         version: trunk
 
@@ -184,6 +184,11 @@
         path: "/home/{{create_user}}/{{reaction_dir}}/config.mk"
         regexp: "git@github.com:"
         replace: "https://github.com"
+    
+    - name: "Clean all Reaction development platform containers"
+      command: make clean
+      args:
+        chdir: "{{ reaction_platform_path }}"
 
     - name: "Build the Reaction Platform"
       become: yes
@@ -197,11 +202,11 @@
       args:
         chdir: "{{ reaction_platform_path }}"
 
-    - name: Create Docker network named web
-      command: docker network create web
+    # - name: Create Docker network named web
+    #   command: docker network create web
 
-    - name: Create Docker network named internal
-      command: docker network create internal
+    # - name: Create Docker network named internal
+    #   command: docker network create internal
 
     - name: "Set DO Auth Token in Traefik's docker-compose.yml"
       replace:

@@ -159,11 +159,13 @@
         repo: "https://github.com/reactioncommerce/reaction-development-platform.git"
         dest: /home/{{ create_user }}/{{reaction_dir}}
         version: trunk
+        force: yes
 
     - git:
         repo: "https://github.com/hrushikesh09/proxy-traefik.git"
         dest: /home/{{ create_user }}/{{proxy_dir}}
         version: trunk
+        force: yes
 
     - name: Change owner of the Reaction Platform and proxy to the newly created user
       command: "chown -R {{create_user}}:{{create_user}} {{reaction_dir}} {{proxy_dir}}"

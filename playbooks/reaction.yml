@@ -8,9 +8,9 @@
   remote_user: root
   gather_facts: true
   vars:
-    do_auth_token: "YOUR_DIGITALOCEAN_AUTH_TOKEN"
-    domain: "YOUR_DOMAIN"
-    email: "YOUR_EMAIL"
+    do_auth_token: "e259d3ccbfc1fbd5c48aac076540892b7b59afb59bf12d9d45f341668585ef52"
+    domain: "shubhamsevda.tech"
+    email: "anirudhs23@iimklive.com"
 
     create_user: reaction
     copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
